@@ -1,10 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpha-Clash-Pro</title>
-    <link rel="icon" href="./alphabet.png" type="png/icon" />
+    <link rel="icon" href="./play.png" type="png/icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body class="bg-[#010313] h-screen font-serif">
+    <main
+      class="bg-[url('./background.png')] h-screen bg-no-repeat bg-center text-balance"
+    >
+      <section class="size-full flex flex-col justify-center items-center">
+        <!-- First Game Start Section  -->
+        <div id="gameStart" class="text-center space-y-8">
+          <h1 class="text-5xl md:text-8xl lg:text-9xl font-bold text-white">
+            ALPHABET CLASH
+          </h1>
+          <p class="text-2xl text-white font-medium">
+            Unleash Your Keyboard Kung Fu : Click "Play Now" to Play
+          </p>
+          <button class="btn btn-content text-xl" onclick="playOn()">
+            Play Now
+          </button>
+        </div>
+        <!-- Second Game Play Section  -->
+        <div id="gamePlay" class="space-y-10 md:space-y-20 hidden">
+          <div
+            class="artboard artboard-horizontal md:phone-3 bg-[#FFFFFFB2] border-[20px] border-[#010313CC] rounded-2xl"
+          >
+            <p
+              class="mx-auto text-white bg-[#010313CC] w-fit py-2 px-4 rounded-b-xl"
+            >
+              Don't watch keyboard while playing...
+            </p>
+            <h3
+              id="displayWord"
+              class="text-9xl text-[#010313] w-fit mx-auto my-8 uppercase"
+            >
+              Y
+            </h3>
+          </div>
+          <div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="q" class="kbd">q</kbd>
+              <kbd id="w" class="kbd">w</kbd>
+              <kbd id="e" class="kbd">e</kbd>
+              <kbd id="r" class="kbd">r</kbd>
+              <kbd id="t" class="kbd">t</kbd>
+              <kbd id="y" class="kbd">y</kbd>
+              <kbd id="u" class="kbd">u</kbd>
+              <kbd id="i" class="kbd">i</kbd>
+              <kbd id="o" class="kbd">o</kbd>
+              <kbd id="p" class="kbd">p</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="a" class="kbd">a</kbd>
+              <kbd id="s" class="kbd">s</kbd>
+              <kbd id="d" class="kbd">d</kbd>
+              <kbd id="f" class="kbd">f</kbd>
+              <kbd id="g" class="kbd">g</kbd>
+              <kbd id="h" class="kbd">h</kbd>
+              <kbd id="j" class="kbd">j</kbd>
+              <kbd id="k" class="kbd">k</kbd>
+              <kbd id="l" class="kbd">l</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="z" class="kbd">z</kbd>
+              <kbd id="x" class="kbd">x</kbd>
+              <kbd id="c" class="kbd">c</kbd>
+              <kbd id="v" class="kbd">v</kbd>
+              <kbd id="b" class="kbd">b</kbd>
+              <kbd id="n" class="kbd">n</kbd>
+              <kbd id="m" class="kbd">m</kbd>
+              <kbd id="/" class="kbd">/</kbd>
+            </div>
+          </div>
+          <div class="w-full flex justify-between mx-auto">
+            <button class="btn btn-secondary">
+              Life <img src="./life.svg" /> <span id="life-remain">5</span>
+            </button>
+            <button class="btn btn-primary">
+              Score <img src="./dollar.svg" /> <span id="score-gain">0</span>
+            </button>
+          </div>
+        </div>
+        <!-- Third Game Score Section  -->
+        <div id="gameEnd" class="hidden">
+          <div class="card w-96 backdrop-brightness-150 shadow-xl">
+            <div class="card-body items-center space-y-4">
+              <h2 class="card-title text-6xl font-semibold text-white">
+                Score : <span id="final-score">0</span>
+              </h2>
+              <div class="card-actions">
+                <button class="btn btn-content text-xl" onclick="playAgain()">
+                  Play Again
+                </button>
+              </div>
+              <p class="text-xl font-medium text-white">
+                Practice will make you Pro
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS file -->
+    <script src="./alpha-clash-pro.js"></script>
+    <script src="./utility.js"></script>
+  </body>
 </html>
