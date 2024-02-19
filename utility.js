@@ -1,3 +1,4 @@
+const audio = new Audio();
 function displayOn(elementID, className) {
   document.getElementById(elementID).classList.add(className);
 }
@@ -23,10 +24,19 @@ function catchWord() {
     displayOff(getWord, "bg-orange-500");
     if (e.key === getWord) {
       const score = parseInt(document.getElementById("score-gain").innerText);
+      audio.src = "./score.mp3";
+      audio.play();
       setInnerText("score-gain", score + 1);
       setInnerText("final-score", score + 1);
     } else {
       const life = parseInt(document.getElementById("life-remain").innerText);
+      document.getElementById(
+        "artboard"
+      ).style.background = `linear-gradient(#FFFFFFB2 ${
+        ((life - 1) / 5) * 100
+      }%, red)`;
+      audio.src = "./life.mp3";
+      audio.play();
       if (life === 0 || e.key === "Escape") {
         displayOn("gamePlay", "hidden");
         displayOff("gameEnd", "hidden");
